@@ -35,6 +35,12 @@ const Home = () => {
             selectmenu
           </button>
         </Link>
+        
+        <Link href='/sendemail'>
+          <button className='text-white border border-violet-600 rounded-full px-5 py-2 hover:bg-violet-600'>
+            sendEmail
+          </button>
+        </Link>
       </div>
     </>
   )
