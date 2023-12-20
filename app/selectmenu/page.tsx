@@ -7,6 +7,7 @@ import Collapsible from '../_components/collapsible'
 const Dropdown = () => {
   const [radioChecked, setRadioChecked] = useState('')
   const [dialogOpen, setDialogOpen] = useState(false)
+  const [isChecked, setIsChecked] = useState(false)
   const handleSelection = (e: React.ChangeEvent<HTMLSelectElement>) => {
     console.log('selection: ', e.target.value)
   }
@@ -101,6 +102,15 @@ const Dropdown = () => {
           </p>
         </Dialog>
       )}
+      <div className='flex gap-2 mt-10 items-center'>
+        <input
+          type='checkbox'
+          checked={isChecked}
+          onChange={() => setIsChecked(!isChecked)}
+          className='w-4 h-4'
+        />
+        <p className='text-lg'>Terms and Conditions</p>
+      </div>
     </div>
   )
 }
