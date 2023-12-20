@@ -3,10 +3,21 @@ import React from 'react'
 const page = () => {
   return (
     // Global container
-    <div className='flex items-center justify-center bg-slate-100 min-h-screen'>
-      <button className='border-2 border-blue-800 bg-blue-800 text-gray-200 rounded-md tracking-tight flex-center space-x-1 hover:bg-gray-800 hover:border-gray-800 px-2 py-1 text-md font-semibold'>
-        Open Dialog
-      </button>
+    <div className='min-h-screen flex flex-col'>
+      <div id='div1' className='h-14 w-full bg-blue-500 text-white fixed z-10'>
+        Navbar
+      </div>
+      <div
+        id='div2'
+        className='flex-1 flex flex-col relative items-center justify-center bg-yellow-400'
+      >
+        <div className='border border-green-500 px-4 py-2 rounded-md bg-pink-500'>
+          click div
+        </div>
+        <button className='border border-green-500 px-4 py-2 rounded-md bg-pink-500'>
+          click me
+        </button>
+      </div>
     </div>
   )
 }

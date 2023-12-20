@@ -1,8 +1,12 @@
 'use client'
+import { useState } from 'react'
+import Dialog from '../_components/Dialog'
 
 import Collapsible from '../_components/collapsible'
 
 const Dropdown = () => {
+  const [radioChecked, setRadioChecked] = useState('')
+  const [dialogOpen, setDialogOpen] = useState(false)
   const handleSelection = (e: React.ChangeEvent<HTMLSelectElement>) => {
     console.log('selection: ', e.target.value)
   }
@@ -42,6 +46,61 @@ const Dropdown = () => {
           tab={2}
         />
       </div>
+      <div className='flex flex-start items-center space-x-4 mt-10'>
+        <div className='flex flex-center hover:scale-150 transition-transform duration-200  cursor-pointer rounded-full border-2 border-gray-500'>
+          <input
+            readOnly
+            className={`w-4 h-4 m-0.5 rounded-full focus:outline-none cursor-pointer ${
+              radioChecked === 'radio1' ? 'bg-teal-500' : ''
+            }`}
+            onClick={() => {
+              setRadioChecked('radio1')
+            }}
+          />
+        </div>
+        <p className='text-xl font-semibold '>Random Radio Button 1</p>
+      </div>
+      <div className='flex flex-start items-center space-x-4 mt-2'>
+        <div className='flex flex-center hover:scale-150 transition-transform duration-200  cursor-pointer rounded-full border-2 border-gray-500'>
+          <input
+            readOnly
+            className={`w-4 h-4 m-0.5 rounded-full focus:outline-none cursor-pointer ${
+              radioChecked === 'radio2' ? 'bg-teal-500' : ''
+            }`}
+            onClick={() => {
+              setRadioChecked('radio2')
+            }}
+          />
+        </div>
+        <p className='text-xl font-semibold '>Random Radio Button 2</p>
+      </div>
+
+      <button
+        type='button'
+        onClick={() => {
+          setDialogOpen(true)
+        }}
+        className='px-4 py-1 border-2 border-gray-300 bg-gray-300 hover:bg-gray-700 text-black hover:text-white mt-10 rounded-md'
+      >
+        dialog
+      </button>
+      {dialogOpen && (
+        <Dialog
+          onClose={() => {
+            setDialogOpen(false)
+          }}
+        >
+          <h1 className='px-2 py-2 text-justify'>
+            Welcome to the new dialog box
+          </h1>
+          <p className='px-2 py-2 text-justify'>
+            The hare never inteneded to win the race nor it had any confidence.
+            It probably wasnt even participating in the race but was on its way
+            home. The hare probably was the only one who thought it was a race
+            and took it seriously.
+          </p>
+        </Dialog>
+      )}
     </div>
   )
 }
